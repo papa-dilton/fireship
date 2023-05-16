@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { getServerSession } from 'next-auth';
 
 // Dummy data
 const posts = [
@@ -11,5 +12,10 @@ const posts = [
 ];
 
 export async function GET() {
-    return NextResponse.json(posts);
+    const session = await getServerSession();
+    if (session) {
+        return NextResponse.json(posts);
+    } else {
+        return NextResponse.json({ error: 'Access Denied' })
+    }
 }
