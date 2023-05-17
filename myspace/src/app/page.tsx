@@ -1,7 +1,8 @@
 import "@/styles/global.css"
 import "@/styles/page.module.css"
 
-export default function Home() {
+export default async function Home() {
+
     return (
         <main>
 

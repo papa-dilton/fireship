@@ -1,9 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from '@/styles/NavMenu.module.css';
-import { SignInButton, SignOutButton } from '@/lib/buttons'
+import {SignInButton, SignOutButton} from '@/components/buttons'
+import { getServerSession } from "next-auth";
 
-export default function NavMenu() {
+
+
+export default async function NavMenu() {
     return (
         <nav className={styles.nav}>
             <Link href="/">
@@ -25,7 +28,12 @@ export default function NavMenu() {
                 <li>
                     <Link href={"/users"}>Users</Link>
                 </li>
-                <SignInButton />
+                <li>
+                    <SignInButton/>
+                </li>
+                <li>
+                    <SignOutButton/>
+                </li>
             </ul>
         </nav>
     )

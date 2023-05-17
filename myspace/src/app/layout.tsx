@@ -1,5 +1,5 @@
 import '@/styles/global.css'
-import NavMenu from '@/lib/NavMenu'
+import NavMenu from '@/components/NavMenu'
 import AuthProvider from "@/app/AuthProvider";
 
 
