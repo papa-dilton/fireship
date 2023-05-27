@@ -15,7 +15,7 @@ export default async function Dashboard() {
     }
 
 
-    const currentUserEmail = session.user.email
+    const currentUserEmail = await session.user.email
     const user = prisma.user.findUnique({
         where: {
             email: currentUserEmail

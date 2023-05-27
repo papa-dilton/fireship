@@ -1,7 +1,7 @@
 'use client';
 
 export default function ProfileForm({ user }: any) {
-
+  const userData = JSON.parse(user.value)
   const updateUser = async (e: React.FormEvent<HTMLFormElement>) => {
     
     e.preventDefault();
@@ -31,18 +31,18 @@ export default function ProfileForm({ user }: any) {
       <h2>Edit Your Profile</h2>
       <form onSubmit={updateUser}>
         <label htmlFor="name">Name</label>
-        <input type="text" name="name" defaultValue={user?.name ?? ''} />
+        <input type="text" name="name" defaultValue={userData?.name ?? ''} />
         <label htmlFor="bio">Bio</label>
         <textarea
           name="bio"
           cols={30}
           rows={10}
-          defaultValue={user?.bio ?? ''}
+          defaultValue={userData?.bio ?? ''}
         ></textarea>
         <label htmlFor="age">Age</label>
-        <input type="text" name="age" defaultValue={user?.age ?? 0} />
+        <input type="text" name="age" defaultValue={userData?.age ?? 0} />
         <label htmlFor="image">Profile Image URL</label>
-        <input type="text" name="image" defaultValue={user?.image ?? ''} />
+        <input type="text" name="image" defaultValue={userData?.image ?? ''} />
 
         <button type="submit">Save</button>
       </form>
